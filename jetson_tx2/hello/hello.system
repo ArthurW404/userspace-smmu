@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2021, Breakaway Consulting Pty. Ltd.
+
+ SPDX-License-Identifier: BSD-2-Clause
+-->
+<system>
+    <memory_region name="smmu" size="0x10_000" phys_addr="0x12000000"/>
+    <protection_domain name="restarter" priority="254">
+        <program_image path="restarter.elf" />
+        <protection_domain name="crasher" priority="253" pd_id="1">
+            <program_image path="crasher.elf" />
+        </protection_domain>
+        <protection_domain name="hello" priority="1" pd_id="2">
+            <map mr="smmu" vaddr="0x5_000_000" perms="rw" cached="false" setvar_vaddr="smmu_base"/>
+            <program_image path="hello.elf" />
+        </protection_domain>
+    </protection_domain>
+</system>
