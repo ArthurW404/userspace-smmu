@@ -11,6 +11,6 @@
 - in the jetson_tx2/hello folder
 
 ```sh
-make BUILD_DIR=./build SEL4CP_SDK=/home/arthur/seL4-stuff/smmu_sel4cp/sel4cp-sdk-1.2.6 SEL4CP_BOARD=jetson_tx2 SEL4CP_CONFIG=debug
+make BUILD_DIR=./build SEL4CP_SDK=../../sel4cp-sdk-1.2.6 SEL4CP_BOARD=jetson_tx2 SEL4CP_CONFIG=debug
 ```
 

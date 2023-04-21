@@ -142,8 +142,10 @@ static void smmu_config_prob(uintptr_t smmu_grs0)
 
     /*smmu page size*/
     if (reg & IDR1_PAGESIZE) {
+        sel4cp_dbg_puts("kernel| SMMU supports 64kb page\n");
         smmu_dev_knowledge.smmu_page_size = SMMU_PAGE_64KB;
     } else {
+        sel4cp_dbg_puts("kernel| SMMU supports 4kb page\n");
         smmu_dev_knowledge.smmu_page_size = SMMU_PAGE_4KB;
     }
     /*smmu num pages, 2^(numdxb + 1)*/
